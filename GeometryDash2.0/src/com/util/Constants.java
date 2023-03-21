@@ -25,8 +25,8 @@ public class Constants {
         // =======================================================
         // Player constants
         // =======================================================
-        public static final int PLR_WIDTH = 41;
-        public static final int PLR_HEIGHT = 41;
+        public static final int PLAYER_WIDTH = 42;
+        public static final int PLAYER_HEIGHT = 42;
         public static final int SPEED = 395;
         public static final int JUMP_FORCE = -650;
         public static final int FLY_FORCE = -45;

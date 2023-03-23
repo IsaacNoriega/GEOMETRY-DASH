@@ -45,7 +45,7 @@ public class Player extends Component {
         AffineTransform transform = new AffineTransform();
         transform.setToIdentity();
         transform.translate(gameObject.transform.position.x,gameObject.transform.position.y);
-        transform.rotate(Math.toRadians(gameObject.transform.rotation), width/2.0, height/2.0);
+        transform.rotate(gameObject.transform.rotation * Math.PI / 180.0f, width/2.0, height/2.0);
         transform.scale(gameObject.transform.scale.x,gameObject.transform.scale.y);
         g2.drawImage(layerOne.image,transform,null);
         g2.drawImage(layerTwo.image,transform,null);

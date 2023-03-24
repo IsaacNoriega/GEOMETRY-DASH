@@ -1,8 +1,6 @@
 package com.jade;
 
-import com.Component.BoxBounds;
-import com.Component.Player;
-import com.Component.Spritesheet;
+import com.Component.*;
 import com.dataScructure.AssetPool;
 import com.dataScructure.Transform;
 import com.util.Constants;
@@ -11,9 +9,18 @@ import com.util.Vector2;
 import java.awt.*;
 
 public class LevelEditorScene extends Scene {
-    GameObject player;
+    static LevelEditorScene currentScene;
+    public  GameObject player;
+    GameObject ground;
     public LevelEditorScene(String name){
          super.Scene(name);
+    }
+
+    public static LevelEditorScene getScene(){
+        if(LevelEditorScene.currentScene == null){
+            LevelEditorScene.currentScene = new LevelEditorScene("Scene");
+        }
+        return  LevelEditorScene.currentScene;
     }
 
 
@@ -31,15 +38,37 @@ public class LevelEditorScene extends Scene {
             Color.RED,
             Color.GREEN);
     player.addComponent(playerComp);
+    player.addComponent(new Rigidbody(new Vector2(0.1f,0)));
+    player.addComponent(new BoxBounds(Constants.PLAYER_WIDTH,Constants.PLAYER_HEIGHT));
+    gameObject.add(player);
+
+    ground = new GameObject("Ground", new Transform(
+            new Vector2(0,Constants.GROUND_Y)));
+    ground.addComponent(new Ground());
+    gameObject.add(ground);
 
     renderer.submit(player);
+    renderer.submit(ground);
     }
 
     @Override
     public void update(double dt) {
-        player.update(dt);
-        player.transform.rotation += dt * 0.1f;
-        camera.position.x += dt * 0.1f;
+
+        if(player.transform.position.x - camera.position.x > Constants.CAMERA_OFFSET_X){
+            camera.position.x = player.transform.position.x - Constants.CAMERA_OFFSET_X;
+        }
+        if(player.transform.position.y - camera.position.y > Constants.CAMERA_OFFSET_Y){
+            camera.position.y = player.transform.position.y - Constants.CAMERA_OFFSET_Y;
+        }
+
+        if(camera.position.y > Constants.CAMERA_OFFSET_GROUND_Y){
+            camera.position.y = Constants.CAMERA_OFFSET_GROUND_Y;
+        }
+
+        for(GameObject g : gameObject){
+            g.update(dt);
+        }
+
     }
 
     @Override

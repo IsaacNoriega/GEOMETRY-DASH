@@ -4,8 +4,8 @@ public class Constants {
         // =======================================================
         // Physics Constants
         // =======================================================
-        public static final int GRAVITY = 2850;
-        public static final int TERMINAL_VELOCITY = 1900;
+        public static final float GRAVITY = 200;
+        public static final float TERMINAL_VELOCITY = 600;
 
         // =======================================================
         // Window properties
@@ -21,6 +21,8 @@ public class Constants {
         public static final int BG_HEIGHT = 512;
         public static final int GROUND_BG_WIDTH = 256;
         public static final int GROUND_BG_HEIGHT = 256;
+
+        public static  final int GROUND_Y = 700;
 
         // =======================================================
         // Player constants
@@ -45,8 +47,9 @@ public class Constants {
         // Camera constants
         // =======================================================
         public static final int GROUND_HEIGHT = 3 * Constants.TILE_WIDTH;
-        public static final int CAMERA_OFFSET_Y = -385;
-        public static final int CAMERA_OFFSET_X = -400;
+        public static final int CAMERA_OFFSET_Y = 325;
+        public static final int CAMERA_OFFSET_X = 300;
+        public static final int CAMERA_OFFSET_GROUND_Y = 150;
         public static final int CAMERA_BOX_TOP_Y = 250;
         public static final int CAMERA_BOX_BOTTOM_Y = 450;
 

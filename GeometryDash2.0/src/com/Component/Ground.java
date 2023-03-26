@@ -37,4 +37,9 @@ public class Ground extends Component {
                 Constants.SCREEN_WIDTH + 20,Constants.SCREEN_HEIGHT);
 
     }
+
+    @Override
+    public Component copy() {
+        return null;
+    }
 }

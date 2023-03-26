@@ -68,6 +68,27 @@ public class GameObject /*extends Serialize implements Comparable<GameObject> */
 
         return null;
     }
+
+    public GameObject copy(){
+    GameObject newGameObject = new GameObject("Generated",transform.copy());
+    for (Component c : components){
+        Component copy = c.copy();
+        if (copy != null) {
+            newGameObject.addComponent(copy);
+        }
+    }
+    return  newGameObject;
+    }
+
+    public <T extends Component> void removeComponent(Class<T> componentClass) {
+        for (Component c : components) {
+            if (componentClass.isAssignableFrom(c.getClass())) {
+                components.remove(c);
+                return;
+            }
+        }
+    }
+
     public void addComponent(Component c) {
         //c.parent = this;
         components.add(c);

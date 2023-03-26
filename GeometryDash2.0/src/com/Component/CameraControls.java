@@ -15,7 +15,7 @@ public class CameraControls extends Component {
     }
     @Override
     public void update(double dt){
-    if(Window.getWindow().mouseListener.mousePressed && Window.getWindow().mouseListener.mouseButton == MouseEvent.BUTTON1){
+    if(Window.getWindow().mouseListener.mousePressed && Window.getWindow().mouseListener.mouseButton == MouseEvent.BUTTON2){
         float dx=(Window.getWindow().mouseListener.x + Window.getWindow().mouseListener.dx - prevMx);
         float dy=(Window.getWindow().mouseListener.y + Window.getWindow().mouseListener.dy - prevMy);
 
@@ -25,6 +25,11 @@ public class CameraControls extends Component {
     prevMx = Window.getWindow().mouseListener.x + Window.getWindow().mouseListener.dx;
     prevMy = Window.getWindow().mouseListener.y + Window.getWindow().mouseListener.dy;
 
+    }
+
+    @Override
+    public Component copy() {
+        return null;
     }
 
 }

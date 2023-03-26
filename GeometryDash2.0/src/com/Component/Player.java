@@ -53,5 +53,10 @@ public class Player extends Component {
 
     }
 
+    @Override
+    public Component copy() {
+        return null;
+    }
+
 
 }

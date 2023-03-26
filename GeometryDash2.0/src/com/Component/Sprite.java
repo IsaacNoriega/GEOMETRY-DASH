@@ -3,7 +3,6 @@ package com.Component;
 import com.dataScructure.AssetPool;
 import com.jade.Component;
 
-import javax.imageio.IIOException;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -46,5 +45,10 @@ public class Sprite extends Component {
     @Override
     public void draw(Graphics2D g2){
         g2.drawImage(image,(int)gameObject.transform.position.x,(int)gameObject.transform.position.y,width,height,null);
+    }
+
+    @Override
+    public Component copy() {
+        return new Sprite(this.image);
     }
 }

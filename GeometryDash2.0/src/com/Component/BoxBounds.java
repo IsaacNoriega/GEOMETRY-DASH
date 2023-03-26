@@ -13,4 +13,10 @@ public class BoxBounds extends Component {
         //System.out.println("We are inside box bounds");
 
     }
+
+    @Override
+    public Component copy() {
+        return new BoxBounds(width,height);
+    }
+
 }

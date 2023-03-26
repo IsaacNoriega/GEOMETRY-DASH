@@ -8,7 +8,7 @@ import  java.util.List;
 
 public abstract class Scene {
     String name;
-    Camera camera;
+    public Camera camera;
     List<GameObject> gameObject;
     Renderer renderer;
 
@@ -23,6 +23,13 @@ public abstract class Scene {
     public void init(){
 
     }
+
+    public void addGameObject(GameObject g){
+        gameObject.add(g);
+        renderer.submit(g);
+    }
+
+
     public abstract void update(double dt);
     public abstract void draw(Graphics2D g2);//Dibujara en la pantalla
 }
